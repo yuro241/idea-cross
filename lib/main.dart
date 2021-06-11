@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/home/home_screen.dart';
+import 'package:myapp/result/result_screen.dart';
 
 void main() => runApp(AppBase());
 
@@ -7,9 +8,10 @@ class AppBase extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        body: HomeScreen(),
-      ),
+      routes: {
+        '/': (context) => HomeScreen(),
+        '/result': (context) => ResultScreen(),
+      },
     );
   }
 }
