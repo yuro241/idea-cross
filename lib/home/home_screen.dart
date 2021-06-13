@@ -107,7 +107,7 @@ class HomeScreenState extends State<HomeScreen> {
             padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
             child: TextButton(
               onPressed: () {
-                print('on pressed 単語一覧を見る button');
+                Navigator.pushNamed(context, '/wordList');
               },
               child: Text(
                 '単語一覧を見る',

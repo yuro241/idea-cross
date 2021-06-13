@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/home/home_screen.dart';
 import 'package:myapp/result/result_screen.dart';
+import 'package:myapp/word_list/word_list.dart';
 
 void main() => runApp(AppBase());
 
@@ -11,6 +12,7 @@ class AppBase extends StatelessWidget {
       routes: {
         '/': (context) => HomeScreen(),
         '/result': (context) => ResultScreen(),
+        '/wordList': (context) => WordListScreen(),
       },
     );
   }
