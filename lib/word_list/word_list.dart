@@ -12,7 +12,15 @@ class WordListScreenState extends State<WordListScreen> {
     return Scaffold(
       backgroundColor: Color(0xFFFFFDF8),
       appBar: AppBar(
-        title: Text('IDEA × CROSS'),
+        backgroundColor: Color(0xFFFFFFFF),
+        title: Container(
+          child: Text(
+            'IDEA × CROSS',
+            style: TextStyle(
+              color: Color(0xFF112D49),
+            ),
+          ),
+        ),
       ),
       body: Column(
         children: [

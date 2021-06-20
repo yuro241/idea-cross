@@ -10,6 +10,17 @@ class ResultScreenState extends State<ResultScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xFFFFFFFF),
+        title: Container(
+          child: Text(
+            'IDEA × CROSS',
+            style: TextStyle(
+              color: Color(0xFF112D49),
+            ),
+          ),
+        ),
+      ),
       body: Column(
         children: [
           Flexible(
