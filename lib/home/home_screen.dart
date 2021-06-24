@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:myapp/home/components/about_app.dart';
+import 'package:myapp/home/components/idea_cross_button.dart';
+import 'package:myapp/home/components/search_text_field.dart';
+import 'package:myapp/result/result_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
-  HomeScreenState createState() => HomeScreenState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> {
+  final textFieldController = TextEditingController();
+
+  @override
+  void dispose() {
+    textFieldController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,103 +33,62 @@ class HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      body: Column(
+      body: Row(
         children: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Text(
-              '掛け合わせでアイデア出し',
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF11254A),
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 16,
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Text(
-              'コンセプトを入力すると、それに合った単語を掛け合わせます。アイデア出しをもっと楽しく、おもしろく！',
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.normal,
-                color: Color(0xFF11254A),
-              ),
-            ),
-          ),
+          AboutApp(),
           SizedBox(
             height: 56,
           ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Text(
-              'アイデアを入力',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF11254A),
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 12,
-          ),
-          Container(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'アイデアを入力',
-                ),
-              ),
-            ),
-            height: 42,
-          ),
-          SizedBox(
-            height: 24,
-          ),
-          Container(
-            height: 40,
-            width: MediaQuery.of(context).size.width,
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/result');
-                },
+          Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
-                  'IDEA CROSS!',
+                  'アイデアを入力',
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 16,
                     fontWeight: FontWeight.bold,
+                    color: Color(0xFF11254A),
                   ),
                 ),
-                style: ElevatedButton.styleFrom(
-                  primary: Color(0xFFF9DC5F),
-                  onPrimary: Colors.white,
-                ),
               ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-            child: TextButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/wordList');
-              },
-              child: Text(
-                '単語一覧を見る',
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.normal,
-                  color: Color(0xFF747474),
-                ),
+              SizedBox(
+                height: 12,
               ),
-            ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: SearchTextField(controller: textFieldController),
+              ),
+              SizedBox(
+                height: 24,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: IdeaCrossButton(onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    '/result',
+                    arguments: ResultScreenArguments(textFieldController.text),
+                  );
+                }),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/wordList');
+                  },
+                  child: Text(
+                    '単語一覧を見る',
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.normal,
+                      color: Color(0xFF747474),
+                    ),
+                  ),
+                ),
+              )
+            ],
           ),
         ],
       ),

@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+class ResultScreenArguments {
+  final String concept;
+
+  ResultScreenArguments(this.concept);
+}
+
 class ResultScreen extends StatefulWidget {
   @override
   ResultScreenState createState() => ResultScreenState();
@@ -9,6 +15,9 @@ class ResultScreen extends StatefulWidget {
 class ResultScreenState extends State<ResultScreen> {
   @override
   Widget build(BuildContext context) {
+    final arguments =
+        ModalRoute.of(context)!.settings.arguments as ResultScreenArguments;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFFFFFFFF),
@@ -39,23 +48,23 @@ class ResultScreenState extends State<ResultScreen> {
                   children: [
                     Container(
                       height: 20,
-                      child: Text('アイデア × 1'),
+                      child: Text('${arguments.concept} × 1'),
                     ),
                     Container(
                       height: 20,
-                      child: Text('アイデア × 2'),
+                      child: Text('${arguments.concept} × 2'),
                     ),
                     Container(
                       height: 20,
-                      child: Text('アイデア × 3'),
+                      child: Text('${arguments.concept} × 3'),
                     ),
                     Container(
                       height: 20,
-                      child: Text('アイデア × 4'),
+                      child: Text('${arguments.concept} × 4'),
                     ),
                     Container(
                       height: 20,
-                      child: Text('アイデア × 5'),
+                      child: Text('${arguments.concept} × 5'),
                     ),
                   ],
                 ),
@@ -65,23 +74,23 @@ class ResultScreenState extends State<ResultScreen> {
                   children: [
                     Container(
                       height: 20,
-                      child: Text('アイデア × 6'),
+                      child: Text('${arguments.concept} × 6'),
                     ),
                     Container(
                       height: 20,
-                      child: Text('アイデア × 7'),
+                      child: Text('${arguments.concept} × 7'),
                     ),
                     Container(
                       height: 20,
-                      child: Text('アイデア × 8'),
+                      child: Text('${arguments.concept} × 8'),
                     ),
                     Container(
                       height: 20,
-                      child: Text('アイデア × 9'),
+                      child: Text('${arguments.concept} × 9'),
                     ),
                     Container(
                       height: 20,
-                      child: Text('アイデア × 10'),
+                      child: Text('${arguments.concept} × 10'),
                     ),
                   ],
                 ),
