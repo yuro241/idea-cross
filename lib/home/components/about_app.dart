@@ -14,7 +14,7 @@ class AboutApp extends StatelessWidget {
           child: Text(
             '掛け合わせでアイデア出し',
             style: TextStyle(
-              fontSize: 22,
+              fontSize: 28,
               fontWeight: FontWeight.bold,
               color: Color(0xFF11254A),
             ),
@@ -26,9 +26,9 @@ class AboutApp extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 20),
           child: Text(
-            'コンセプトを入力すると、それに合った単語を掛け合わせます。アイデア出しをもっと楽しく、おもしろく！',
+            'コンセプトを入力すると、それに合った単語を掛け合わせます。\n アイデア出しをもっと楽しく、おもしろく！',
             style: TextStyle(
-              fontSize: 12,
+              fontSize: 14,
               fontWeight: FontWeight.normal,
               color: Color(0xFF11254A),
             ),
