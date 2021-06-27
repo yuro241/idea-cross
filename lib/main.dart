@@ -9,6 +9,7 @@ class AppBase extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(fontFamily: 'Noto Sans JP'),
       routes: {
         '/': (context) => HomeScreen(),
         '/result': (context) => ResultScreen(),
