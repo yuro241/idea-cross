@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:myapp/repository/word_repository.dart';
 import 'package:myapp/result/components/result_list.dart';
 import 'package:myapp/result/components/retry_button.dart';
 
@@ -42,7 +43,10 @@ class ResultScreenState extends State<ResultScreen> {
             ),
           ),
           Center(
-            child: ResultList(concept: arguments.concept),
+            child: ResultList(
+              concept: arguments.concept,
+              repository: WordRepository(),
+            ),
           ),
           SizedBox(
             height: 20,
