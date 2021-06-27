@@ -38,11 +38,10 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
-              height: 246,
-            ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 AboutApp(),
                 Column(

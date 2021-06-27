@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:myapp/result/components/result_list.dart';
+import 'package:myapp/result/components/retry_button.dart';
 
 class ResultScreenArguments {
   final String concept;
@@ -32,94 +34,20 @@ class ResultScreenState extends State<ResultScreen> {
       ),
       body: Column(
         children: [
-          Flexible(
-            child: Text(
-              '結果',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
+          Text(
+            '結果',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
             ),
           ),
-          Row(
-            children: [
-              Flexible(
-                child: Column(
-                  children: [
-                    Container(
-                      height: 20,
-                      child: Text('${arguments.concept} × 1'),
-                    ),
-                    Container(
-                      height: 20,
-                      child: Text('${arguments.concept} × 2'),
-                    ),
-                    Container(
-                      height: 20,
-                      child: Text('${arguments.concept} × 3'),
-                    ),
-                    Container(
-                      height: 20,
-                      child: Text('${arguments.concept} × 4'),
-                    ),
-                    Container(
-                      height: 20,
-                      child: Text('${arguments.concept} × 5'),
-                    ),
-                  ],
-                ),
-              ),
-              Flexible(
-                child: Column(
-                  children: [
-                    Container(
-                      height: 20,
-                      child: Text('${arguments.concept} × 6'),
-                    ),
-                    Container(
-                      height: 20,
-                      child: Text('${arguments.concept} × 7'),
-                    ),
-                    Container(
-                      height: 20,
-                      child: Text('${arguments.concept} × 8'),
-                    ),
-                    Container(
-                      height: 20,
-                      child: Text('${arguments.concept} × 9'),
-                    ),
-                    Container(
-                      height: 20,
-                      child: Text('${arguments.concept} × 10'),
-                    ),
-                  ],
-                ),
-              ),
-            ],
+          Center(
+            child: ResultList(concept: arguments.concept),
           ),
           SizedBox(
             height: 20,
           ),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-            width: MediaQuery.of(context).size.width,
-            child: ElevatedButton(
-              child: const Text(
-                'もう一度',
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              style: ElevatedButton.styleFrom(
-                primary: Color(0xFFF9DC5F),
-                onPrimary: Colors.white,
-              ),
-              onPressed: () {
-                print('');
-              },
-            ),
-          ),
+          RetryButton(onPressed: () {}),
         ],
       ),
     );

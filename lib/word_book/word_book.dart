@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class WordListScreen extends StatefulWidget {
+class WordBookScreen extends StatefulWidget {
   @override
-  WordListScreenState createState() => WordListScreenState();
+  WordBookScreenState createState() => WordBookScreenState();
 }
 
-class WordListScreenState extends State<WordListScreen> {
+class WordBookScreenState extends State<WordBookScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/home/home_screen.dart';
 import 'package:myapp/result/result_screen.dart';
-import 'package:myapp/word_list/word_list.dart';
+import 'package:myapp/word_book/word_book.dart';
 
 void main() => runApp(AppBase());
 
@@ -13,7 +13,7 @@ class AppBase extends StatelessWidget {
       routes: {
         '/': (context) => HomeScreen(),
         '/result': (context) => ResultScreen(),
-        '/wordList': (context) => WordListScreen(),
+        '/wordList': (context) => WordBookScreen(),
       },
     );
   }
