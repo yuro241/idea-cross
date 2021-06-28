@@ -24,14 +24,20 @@ class WordBookScreenState extends State<WordBookScreen> {
       ),
       body: Column(
         children: [
-          Flexible(
-            child: Text(
-              '単語一覧',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
+          Row(
+            children: [
+              SizedBox(
+                width: 40,
               ),
-            ),
+              Text(
+                '単語一覧',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Spacer(),
+            ],
           ),
           Flexible(
             child: Column(
