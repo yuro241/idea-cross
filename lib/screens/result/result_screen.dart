@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:myapp/model/wordListModel.dart';
 import 'package:myapp/repository/word_repository.dart';
-import 'package:myapp/result/components/result_list.dart';
-import 'package:myapp/result/components/retry_button.dart';
+import 'package:myapp/screens/result/components/result_list.dart';
+import 'package:myapp/screens/result/components/retry_button.dart';
 import 'package:provider/provider.dart';
 
 class ResultScreenArguments {

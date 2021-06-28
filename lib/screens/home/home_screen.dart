@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:myapp/home/components/about_app.dart';
-import 'package:myapp/home/components/idea_cross_button.dart';
-import 'package:myapp/home/components/search_text_field.dart';
-import 'package:myapp/result/result_screen.dart';
+import 'package:myapp/screens/home/components/about_app.dart';
+import 'package:myapp/screens/home/components/idea_cross_button.dart';
+import 'package:myapp/screens/home/components/search_text_field.dart';
+import 'package:myapp/screens/result/result_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override

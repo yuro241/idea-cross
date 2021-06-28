@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/result/components/result_list_item.dart';
+import 'package:myapp/screens/result/components/result_list_item.dart';
 
 class ResultList extends StatelessWidget {
   final String concept;

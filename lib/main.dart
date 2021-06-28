@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/home/home_screen.dart';
 import 'package:myapp/model/wordListModel.dart';
 import 'package:myapp/repository/word_repository.dart';
-import 'package:myapp/result/result_screen.dart';
-import 'package:myapp/word_book/word_book.dart';
+import 'package:myapp/screens/home/home_screen.dart';
+import 'package:myapp/screens/result/result_screen.dart';
+import 'package:myapp/screens/word_book/word_book.dart';
 import 'package:provider/provider.dart';
 
 void main() => runApp(AppBase());

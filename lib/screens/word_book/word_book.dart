@@ -24,6 +24,9 @@ class WordBookScreenState extends State<WordBookScreen> {
       ),
       body: Column(
         children: [
+          SizedBox(
+            height: 52,
+          ),
           Row(
             children: [
               SizedBox(
@@ -39,54 +42,40 @@ class WordBookScreenState extends State<WordBookScreen> {
               Spacer(),
             ],
           ),
-          Flexible(
-            child: Column(
-              children: [
-                Container(
-                  height: 20,
-                  child: Text('アイデア × 1'),
+          SizedBox(
+            height: 16,
+          ),
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: 40,
+              ),
+              child: Container(
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Color(0xFFBABABA),
+                  ),
+                  borderRadius: BorderRadius.circular(3),
                 ),
-                Container(
-                  height: 20,
-                  child: Text('アイデア × 2'),
+                child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: 300,
+                    crossAxisSpacing: 4,
+                    mainAxisSpacing: 4,
+                  ),
+                  itemBuilder: (context, index) {
+                    return Container(
+                      height: 100,
+                      color: Color(0xFF00FF00),
+                      child: Text('aaaa$index'),
+                    );
+                  },
                 ),
-                Container(
-                  height: 20,
-                  child: Text('アイデア × 3'),
-                ),
-                Container(
-                  height: 20,
-                  child: Text('アイデア × 4'),
-                ),
-                Container(
-                  height: 20,
-                  child: Text('アイデア × 5'),
-                ),
-              ],
+              ),
             ),
           ),
           SizedBox(
             height: 20,
-          ),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-            width: MediaQuery.of(context).size.width,
-            child: ElevatedButton(
-              child: const Text(
-                'もう一度',
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              style: ElevatedButton.styleFrom(
-                primary: Color(0xFFF9DC5F),
-                onPrimary: Colors.white,
-              ),
-              onPressed: () {
-                print('');
-              },
-            ),
           ),
         ],
       ),
