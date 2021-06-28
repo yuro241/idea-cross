@@ -11,16 +11,12 @@ class WordRepository {
     var count = -1;
     for (String line in csv.split("\n")) {
       count++;
-      if (randomIndexList.contains(count)) {
-        print(count);
-        List rows = line.split(',');
-        list.add(rows[0]);
-        print(rows[0]);
-      }
-
+      if (!randomIndexList.contains(count)) continue;
+      List rows = line.split(',');
+      list.add(rows[0]);
       if (list.length == 10) break;
     }
-    print(list);
+
     return list;
   }
 }
