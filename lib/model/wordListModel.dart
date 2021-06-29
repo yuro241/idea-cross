@@ -3,17 +3,26 @@ import 'package:myapp/repository/word_repository.dart';
 
 class WordListModel extends ChangeNotifier {
   final WordRepository repository;
-  List<String> _wordList = [];
+  List<String> _resultWordList = [];
+  List<String> _allWordList = [];
 
   WordListModel(this.repository) {
-    setWordList();
+    setResultWordList();
+    _setAllWordList();
   }
 
-  List<String> get wordList => _wordList;
+  List<String> get resultWordList => _resultWordList;
+  List<String> get allWordList => _allWordList;
 
-  Future setWordList() async {
-    final wordList = await repository.getWordListFromCSV();
-    _wordList = wordList;
+  Future _setAllWordList() async {
+    final wordList = await repository.getAllWordList();
+    _allWordList = wordList;
+    notifyListeners();
+  }
+
+  Future setResultWordList() async {
+    final wordList = await repository.getResultWordList();
+    _resultWordList = wordList;
     notifyListeners();
   }
 }

@@ -46,14 +46,14 @@ class ResultScreen extends StatelessWidget {
             Center(
               child: ResultList(
                 concept: arguments.concept,
-                wordList: context.watch<WordListModel>().wordList,
+                wordList: context.watch<WordListModel>().resultWordList,
               ),
             ),
             SizedBox(
               height: 20,
             ),
             RetryButton(onPressed: () {
-              context.read<WordListModel>().setWordList();
+              context.read<WordListModel>().setResultWordList();
             }),
           ],
         ),

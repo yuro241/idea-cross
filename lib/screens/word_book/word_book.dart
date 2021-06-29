@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:myapp/model/wordListModel.dart';
+import 'package:myapp/screens/word_book/components/word_list.dart';
+import 'package:provider/provider.dart';
 
 class WordBookScreen extends StatefulWidget {
   @override
@@ -50,27 +53,8 @@ class WordBookScreenState extends State<WordBookScreen> {
               padding: EdgeInsets.symmetric(
                 horizontal: 40,
               ),
-              child: Container(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Color(0xFFBABABA),
-                  ),
-                  borderRadius: BorderRadius.circular(3),
-                ),
-                child: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: 300,
-                    crossAxisSpacing: 4,
-                    mainAxisSpacing: 4,
-                  ),
-                  itemBuilder: (context, index) {
-                    return Container(
-                      height: 100,
-                      color: Color(0xFF00FF00),
-                      child: Text('aaaa$index'),
-                    );
-                  },
-                ),
+              child: WordList(
+                wordList: context.watch<WordListModel>().allWordList,
               ),
             ),
           ),
