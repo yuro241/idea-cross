@@ -59,7 +59,7 @@ class WordBookScreenState extends State<WordBookScreen> {
             ),
           ),
           SizedBox(
-            height: 20,
+            height: MediaQuery.of(context).size.height / 5,
           ),
         ],
       ),
