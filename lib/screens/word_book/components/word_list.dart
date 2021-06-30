@@ -18,18 +18,23 @@ class WordList extends StatelessWidget {
         ),
         borderRadius: BorderRadius.circular(3),
       ),
-      child: GridView.builder(
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 300,
-          crossAxisSpacing: 4,
-          mainAxisSpacing: 4,
+      child: Container(
+        color: Color(0xFFDEDEDE),
+        child: GridView.builder(
+          physics: ClampingScrollPhysics(),
+          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 300,
+            crossAxisSpacing: 1,
+            mainAxisSpacing: 1,
+            childAspectRatio: 4.7,
+          ),
+          itemBuilder: (_, index) {
+            if (wordList.isEmpty) return Container();
+            return WordListItem(
+              word: wordList[index],
+            );
+          },
         ),
-        itemBuilder: (_, index) {
-          if (wordList.isEmpty) return Container();
-          return WordListItem(
-            word: wordList[index],
-          );
-        },
       ),
     );
   }
