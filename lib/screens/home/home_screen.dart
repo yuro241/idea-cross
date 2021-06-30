@@ -4,6 +4,7 @@ import 'package:myapp/screens/home/components/about_app.dart';
 import 'package:myapp/screens/home/components/idea_cross_button.dart';
 import 'package:myapp/screens/home/components/search_text_field.dart';
 import 'package:myapp/screens/result/result_screen.dart';
+import 'package:myapp/util/background.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -22,87 +23,79 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xFFFFFFFF),
-        title: Text(
-          'IDEA × CROSS',
-          style: TextStyle(
-            color: Color(0xFF112D49),
-          ),
-        ),
-      ),
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('images/background.png'),
-          ),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+      body: Stack(
+        children: [
+          Background(),
+          Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                AboutApp(),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      child: Text(
-                        'アイデアを入力',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFF11254A),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 12,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      child: SearchTextField(controller: textFieldController),
-                    ),
-                    SizedBox(
-                      height: 24,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      child: IdeaCrossButton(onPressed: () {
-                        Navigator.pushNamed(
-                          context,
-                          '/result',
-                          arguments:
-                              ResultScreenArguments(textFieldController.text),
-                        );
-                      }),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                      child: TextButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/wordList');
-                        },
-                        child: Text(
-                          '単語一覧を見る',
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.normal,
-                            color: Color(0xFF747474),
-                            decoration: TextDecoration.underline,
+                    AboutApp(),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Text(
+                            'アイデアを入力',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF11254A),
+                            ),
                           ),
                         ),
-                      ),
+                        SizedBox(
+                          height: 12,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child:
+                              SearchTextField(controller: textFieldController),
+                        ),
+                        SizedBox(
+                          height: 24,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: IdeaCrossButton(onPressed: () {
+                            Navigator.pushNamed(
+                              context,
+                              '/result',
+                              arguments: ResultScreenArguments(
+                                  textFieldController.text),
+                            );
+                          }),
+                        ),
+                        Padding(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                          child: TextButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/wordList');
+                            },
+                            child: Text(
+                              '単語一覧を見る',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.normal,
+                                color: Color(0xFF747474),
+                                decoration: TextDecoration.underline,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
