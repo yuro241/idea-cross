@@ -25,12 +25,18 @@ class ResultScreen extends StatelessWidget {
             Background(),
             Column(
               children: [
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.2,
+                ),
                 Text(
                   '結果',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
+                ),
+                SizedBox(
+                  height: 20,
                 ),
                 Center(
                   child: ResultList(
@@ -39,7 +45,7 @@ class ResultScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 40,
                 ),
                 RetryButton(onPressed: () {
                   context.read<WordListModel>().setResultWordList();

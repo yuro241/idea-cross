@@ -14,16 +14,17 @@ class ResultList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width / 2,
-      height: 274,
+      width: MediaQuery.of(context).size.width * 0.5,
+      height: MediaQuery.of(context).size.height * 0.34,
       decoration: BoxDecoration(
+        color: Color(0xFFFFFFFF),
         border: Border.all(
           color: Color(0xFFBABABA),
         ),
         borderRadius: BorderRadius.circular(3),
       ),
       child: Container(
-        width: MediaQuery.of(context).size.width / 2,
+        width: MediaQuery.of(context).size.width * 0.5,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
