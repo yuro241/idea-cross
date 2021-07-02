@@ -4,12 +4,20 @@ import 'package:myapp/screens/result/components/result_list_item.dart';
 class ResultList extends StatelessWidget {
   final String concept;
   final List<String> wordList;
+  final List<ResultListItem> resultListItems = [];
 
-  const ResultList({
+  ResultList({
     Key? key,
     required this.concept,
     required this.wordList,
-  }) : super(key: key);
+  }) {
+    wordList.forEach((word) {
+      resultListItems.add(ResultListItem(
+        concept: concept,
+        crossingWord: word,
+      ));
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,32 +33,15 @@ class ResultList extends StatelessWidget {
       ),
       child: Container(
         width: MediaQuery.of(context).size.width * 0.5,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                for (var i = 0; i < 5; i++)
-                  if (wordList.length > i)
-                    ResultListItem(
-                      concept: concept,
-                      crossingWord: wordList[i],
-                    ),
-              ],
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                for (var i = 5; i < 10; i++)
-                  if (wordList.length > i)
-                    ResultListItem(
-                      concept: concept,
-                      crossingWord: wordList[i],
-                    ),
-              ],
-            ),
-          ],
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 28),
+          child: GridView.count(
+            crossAxisCount: 2,
+            childAspectRatio: 7,
+            physics: ClampingScrollPhysics(),
+            crossAxisSpacing: 20,
+            children: resultListItems,
+          ),
         ),
       ),
     );

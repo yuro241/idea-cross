@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/responsive.dart';
 
 class AboutApp extends StatelessWidget {
   const AboutApp({
@@ -14,7 +15,7 @@ class AboutApp extends StatelessWidget {
           child: Text(
             '掛け合わせでアイデア出し',
             style: TextStyle(
-              fontSize: 28,
+              fontSize: Responsive.isDesktop(context) ? 28 : 22,
               fontWeight: FontWeight.bold,
               color: Color(0xFF11254A),
             ),
@@ -28,7 +29,7 @@ class AboutApp extends StatelessWidget {
           child: Text(
             'コンセプトを入力すると、それに合った単語を掛け合わせます。\n アイデア出しをもっと楽しく、おもしろく！',
             style: TextStyle(
-              fontSize: 14,
+              fontSize: Responsive.isDesktop(context) ? 14 : 12,
               fontWeight: FontWeight.normal,
               color: Color(0xFF11254A),
             ),
