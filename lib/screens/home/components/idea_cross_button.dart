@@ -24,7 +24,7 @@ class IdeaCrossButton extends ConsumerWidget {
             Navigator.pushNamed(context, '/result');
           },
           child: Text(
-            '掛け合わせる',
+            '掛け合わせる！',
             style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.bold,

@@ -48,6 +48,9 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  assets:
+    - background.png
+    - words.csv
 #    - assets/i
 #    - assets/images/background.png
 #    - assets/data/words.csv
@@ -55,9 +58,6 @@ flutter:
   fonts:
     - family: Noto Sans JP
       fonts:
-        - asset: assets/fonts/NotoSansJP-Thin.otf
-        - asset: assets/fonts/NotoSansJP-Regular.otf
-        - asset: assets/fonts/NotoSansJP-Medium.otf
-        - asset: assets/fonts/NotoSansJP-Light.otf
-        - asset: assets/fonts/NotoSansJP-Bold.otf
-        - asset: assets/fonts/NotoSansJP-Black.otf
+        - asset: fonts/NotoSansJP-Regular.otf
+        - asset: fonts/NotoSansJP-Bold.otf
+          weight: 700
