@@ -9,7 +9,7 @@ class Background extends StatelessWidget {
           right: -(MediaQuery.of(context).size.width / 2.8),
           top: -(MediaQuery.of(context).size.width / 2.8),
           child: Image.asset(
-            'images/background.png',
+            'background.png',
             width: MediaQuery.of(context).size.width / 1.4,
             height: MediaQuery.of(context).size.width / 1.4,
           ),
@@ -18,7 +18,7 @@ class Background extends StatelessWidget {
           left: -(MediaQuery.of(context).size.width / 5.1),
           bottom: -(MediaQuery.of(context).size.width / 3.7),
           child: Image.asset(
-            'images/background.png',
+            'background.png',
             width: MediaQuery.of(context).size.width / 1.4,
             height: MediaQuery.of(context).size.width / 1.4,
           ),

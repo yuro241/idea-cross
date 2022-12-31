@@ -41,22 +41,20 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           SizedBox(height: MediaQuery.of(context).size.height * 0.16),
           AboutApp(),
-          SizedBox(
-            height: 56,
-          ),
+          SizedBox(height: 56),
           Text(
-            'アイデアを入力',
+            'あなたのコンセプトは…？',
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
               color: Color(0xFF11254A),
             ),
           ),
-          SizedBox(height: 12),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.01),
           SearchTextField(controller: textFieldController),
-          SizedBox(height: 24),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.1),
           IdeaCrossButton(),
-          SizedBox(height: 12),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.01),
           Row(
             children: [
               Spacer(),
@@ -82,10 +80,13 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildHorizontalLayout() {
-    return Center(
-      child: Row(
+    return Column(
+      children: [
+        SizedBox(height: MediaQuery.of(context).size.height * 0.16),
+        Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
+          SizedBox(height: MediaQuery.of(context).size.height * 0.16),
           AboutApp(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
-                  'アイデアを入力',
+                  'あなたのコンセプトは…？',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -101,14 +102,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 12),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.01),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: SearchTextField(
                   controller: textFieldController,
                 ),
               ),
-              SizedBox(height: 24),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.1),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: IdeaCrossButton(),
@@ -132,8 +133,11 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ],
           ),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.16),
         ],
       ),
+    Spacer(),
+    ],
     );
   }
 }

@@ -19,7 +19,7 @@ class SearchTextField extends ConsumerWidget {
         controller: controller,
         decoration: InputDecoration(
           border: OutlineInputBorder(),
-          hintText: 'アイデアを入力',
+          hintText: 'コンセプトを入力',
         ),
         onChanged: (word) => ref.read(conceptProvider.notifier).set(word),
       ),

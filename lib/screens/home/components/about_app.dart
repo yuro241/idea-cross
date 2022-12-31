@@ -13,7 +13,7 @@ class AboutApp extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 20),
           child: Text(
-            '掛け合わせでアイデア出し',
+            '「掛け合わせ」でアイデア出しに新しい風を',
             style: TextStyle(
               fontSize: Responsive.isDesktop(context) ? 28 : 22,
               fontWeight: FontWeight.bold,
