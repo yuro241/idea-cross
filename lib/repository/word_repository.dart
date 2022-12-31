@@ -1,6 +1,12 @@
 import 'package:flutter/services.dart';
 import 'dart:math' as math;
 
+import 'package:riverpod/riverpod.dart';
+
+final repositoryProvider = Provider<WordRepository>((ref) {
+  return WordRepository();
+});
+
 class WordRepository {
   // CSVファイルからランダムで10個単語を抽出
   Future<List<String>> getResultWordList() async {

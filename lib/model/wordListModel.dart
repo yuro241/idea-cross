@@ -1,28 +1,54 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/repository/word_repository.dart';
+import 'package:riverpod/riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class WordListModel extends ChangeNotifier {
-  final WordRepository repository;
-  List<String> _resultWordList = [];
-  List<String> _allWordList = [];
+final resultWordListProvider = FutureProvider<List<String>>((ref) async {
+  return await ref.read(repositoryProvider).getResultWordList();
+});
 
-  WordListModel(this.repository) {
-    setResultWordList();
-    _setAllWordList();
+final allWordListProvider = FutureProvider<List<String>>((ref) async {
+  return await ref.read(repositoryProvider).getAllWordList();
+});
+
+final conceptCacheProvider = FutureProvider((ref) async {
+
+});
+
+final conceptProvider = StateNotifierProvider<ConceptModelNotifier, ConceptModel>((_) => ConceptModelNotifier());
+
+@immutable
+class ConceptModel {
+  const ConceptModel({required this.concept});
+
+  final String concept;
+
+  ConceptModel copyWith(String? concept) {
+    return ConceptModel(concept: concept ?? this.concept);
+  }
+}
+
+class ConceptModelNotifier extends StateNotifier<ConceptModel>{
+  ConceptModelNotifier() : super(ConceptModel(concept: '')) {
+    _loadConceptFromCache();
   }
 
-  List<String> get resultWordList => _resultWordList;
-  List<String> get allWordList => _allWordList;
-
-  Future _setAllWordList() async {
-    final wordList = await repository.getAllWordList();
-    _allWordList = wordList;
-    notifyListeners();
+  void set(String concept) {
+    state = state.copyWith(concept);
   }
 
-  Future setResultWordList() async {
-    final wordList = await repository.getResultWordList();
-    _resultWordList = wordList;
-    notifyListeners();
+  void cacheConcept() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('concept', state.concept);
+    print('cached ${state.concept}');
+  }
+
+  void _loadConceptFromCache() async {
+    print('try to load cache');
+    final prefs = await SharedPreferences.getInstance();
+    final String? concept = prefs.getString('concept');
+    if (concept != null) {
+      set(concept);
+    }
   }
 }

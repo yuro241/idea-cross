@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:myapp/responsive.dart';
 import 'package:myapp/screens/home/components/about_app.dart';
 import 'package:myapp/screens/home/components/idea_cross_button.dart';
 import 'package:myapp/screens/home/components/search_text_field.dart';
-import 'package:myapp/screens/result/result_screen.dart';
 import 'package:myapp/util/background.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -57,15 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(height: 12),
           SearchTextField(controller: textFieldController),
           SizedBox(height: 24),
-          IdeaCrossButton(
-            onPressed: () {
-              Navigator.pushNamed(
-                context,
-                '/result',
-                arguments: ResultScreenArguments(textFieldController.text),
-              );
-            },
-          ),
+          IdeaCrossButton(),
           SizedBox(height: 12),
           Row(
             children: [
@@ -121,13 +111,7 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(height: 24),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
-                child: IdeaCrossButton(onPressed: () {
-                  Navigator.pushNamed(
-                    context,
-                    '/result',
-                    arguments: ResultScreenArguments(textFieldController.text),
-                  );
-                }),
+                child: IdeaCrossButton(),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),

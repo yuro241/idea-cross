@@ -12,10 +12,12 @@ class ResultList extends StatelessWidget {
     required this.wordList,
   }) {
     wordList.forEach((word) {
-      resultListItems.add(ResultListItem(
-        concept: concept,
-        crossingWord: word,
-      ));
+      resultListItems.add(
+        ResultListItem(
+          concept: concept,
+          crossingWord: word,
+        ),
+      );
     });
   }
 

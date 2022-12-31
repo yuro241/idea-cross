@@ -26,8 +26,8 @@ class RetryButton extends StatelessWidget {
             ),
           ),
           style: ElevatedButton.styleFrom(
-            primary: Color(0xFFF9DC5F),
-            onPrimary: Colors.white,
+            backgroundColor: Color(0xFFF9DC5F),
+            foregroundColor: Colors.white,
           ),
         ),
       ),
