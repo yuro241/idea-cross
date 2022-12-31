@@ -36,9 +36,7 @@ class ResultScreen extends ConsumerWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
+                      SizedBox(height: 20),
                       Center(
                         child: ResultList(
                           concept: ref
@@ -47,9 +45,7 @@ class ResultScreen extends ConsumerWidget {
                           wordList: result,
                         ),
                       ),
-                      SizedBox(
-                        height: 40,
-                      ),
+                      SizedBox(height: 40),
                       RetryButton(
                         onPressed: () =>
                             ref.refresh(resultWordListProvider),
@@ -62,7 +58,5 @@ class ResultScreen extends ConsumerWidget {
           );
           },
     );
-
-
   }
 }

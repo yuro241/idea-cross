@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/responsive.dart';
 import 'package:myapp/screens/result/components/result_list_item.dart';
 
 class ResultList extends StatelessWidget {
@@ -23,6 +24,10 @@ class ResultList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return Responsive.isDesktop(context) ? _buildHorizontalList(context) : _buildVerticalList(context);
+  }
+
+  Widget _buildHorizontalList(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.5,
       height: MediaQuery.of(context).size.height * 0.34,
@@ -37,11 +42,40 @@ class ResultList extends StatelessWidget {
         width: MediaQuery.of(context).size.width * 0.5,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 28),
-          child: GridView.count(
+          child:  GridView.count(
+            mainAxisSpacing: 20,
             crossAxisCount: 2,
-            childAspectRatio: 7,
+            childAspectRatio: 8,
             physics: ClampingScrollPhysics(),
             crossAxisSpacing: 20,
+            children: resultListItems,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildVerticalList(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.5,
+      height: MediaQuery.of(context).size.height * 0.5,
+      decoration: BoxDecoration(
+        color: Color(0xFFFFFFFF),
+        border: Border.all(
+          color: Color(0xFFBABABA),
+        ),
+        borderRadius: BorderRadius.circular(3),
+      ),
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.5,
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 28),
+          child: GridView.count(
+            mainAxisSpacing: 20,
+            crossAxisCount: 1,
+            childAspectRatio: 6,
+            physics: ClampingScrollPhysics(),
+            // crossAxisSpacing: 20,
             children: resultListItems,
           ),
         ),
