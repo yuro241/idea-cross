@@ -40,11 +40,9 @@ class ConceptModelNotifier extends StateNotifier<ConceptModel>{
   void cacheConcept() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('concept', state.concept);
-    print('cached ${state.concept}');
   }
 
   void _loadConceptFromCache() async {
-    print('try to load cache');
     final prefs = await SharedPreferences.getInstance();
     final String? concept = prefs.getString('concept');
     if (concept != null) {
