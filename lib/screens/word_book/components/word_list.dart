@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/screens/word_book/components/word_list_item.dart';
+import 'package:ideacross/screens/word_book/components/word_list_item.dart';
 
 class WordList extends StatelessWidget {
   final List<String> wordList;

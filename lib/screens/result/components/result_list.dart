@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/responsive.dart';
-import 'package:myapp/screens/result/components/result_list_item.dart';
+import 'package:ideacross/responsive.dart';
+import 'package:ideacross/screens/result/components/result_list_item.dart';
 
 class ResultList extends StatelessWidget {
   final String concept;
@@ -24,7 +24,9 @@ class ResultList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Responsive.isDesktop(context) ? _buildHorizontalList(context) : _buildVerticalList(context);
+    return Responsive.isDesktop(context)
+        ? _buildHorizontalList(context)
+        : _buildVerticalList(context);
   }
 
   Widget _buildHorizontalList(BuildContext context) {
@@ -42,7 +44,7 @@ class ResultList extends StatelessWidget {
         width: MediaQuery.of(context).size.width * 0.5,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 28),
-          child:  GridView.count(
+          child: GridView.count(
             mainAxisSpacing: 20,
             crossAxisCount: 2,
             childAspectRatio: 8,

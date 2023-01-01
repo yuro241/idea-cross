@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/responsive.dart';
+import 'package:ideacross/responsive.dart';
 
 class AboutApp extends StatelessWidget {
   const AboutApp({
