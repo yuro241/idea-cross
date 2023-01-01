@@ -1,11 +1,11 @@
 {
-    "name": "myapp",
-    "short_name": "myapp",
+    "name": "ideacross",
+    "short_name": "ideacross",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#F9DC5F",
+    "theme_color": "#F9DC5F",
+    "description": "アイデア出しを助けるアプリ。コンセプトを入力すると、それに合った単語を掛け合わせます。アイデア出しをもっと楽しく、おもしろく！",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
